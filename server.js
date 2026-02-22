@@ -38,7 +38,7 @@ const start = async () => {
     console.info('[Server] listening on port', port);
   });
 
-	// Server error handling
+  // Server error handling
   server.on('error', serverError);
 
   // Graceful shutdown (CLEAN EXIT)
