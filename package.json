@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "gen:time": "node scripts/genTime.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,12 @@
     "@ngrok/ngrok": "^1.7.0",
     "axios": "^1.13.5",
     "dotenv": "^17.3.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mysql2": "^3.17.4",
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "sequelize-cli": "^6.6.5"
   }
 }
