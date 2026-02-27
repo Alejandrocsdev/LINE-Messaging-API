@@ -1,13 +1,13 @@
 const { User } = require('../db/mysql/models');
 
-exports.findAll = async () => {
+exports.findAll = () => {
   return User.findAll();
 };
 
-exports.findByUserId = async (userId) => {
+exports.findByUserId = (userId) => {
   return User.findOne({ where: { userId } });
 };
 
-exports.create = async (payload = {}) => {
+exports.create = (payload = {}) => {
   return User.create(payload);
 };

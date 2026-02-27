@@ -1,17 +1,17 @@
 const { Group, UserGroup } = require('../db/mysql/models');
 
-exports.findAll = async () => {
+exports.findAll = () => {
   return Group.findAll();
 };
 
-exports.findByGroupId = async (groupId) => {
+exports.findByGroupId = (groupId) => {
   return Group.findOne({ where: { groupId } });
 };
 
-exports.create = async (payload = {}) => {
+exports.create = (payload = {}) => {
   return Group.create(payload);
 };
 
-exports.addUserToGroup = async (userId, groupId) => {
+exports.addUserToGroup = (userId, groupId) => {
   return UserGroup.findOrCreate({ where: { userId, groupId } });
 };

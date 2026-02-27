@@ -1,6 +1,3 @@
-const usersService = require('./user.service');
-const groupsService = require('./group.service');
-
 const lineApi = require('../config/api');
 
 exports.getGroupSummary = async (groupId) => {
@@ -11,4 +8,10 @@ exports.getGroupSummary = async (groupId) => {
 exports.getGroupMember = async (groupId, userId) => {
   const { data } = await lineApi.get(`/group/${groupId}/member/${userId}`);
   return data.displayName;
+};
+
+exports.pushMessage = async (groupId, text) => {
+  const body = { to: groupId, messages: [{ type: 'text', text }] };
+  const { status } = await lineApi.post('/message/push', body);
+  return status;
 };

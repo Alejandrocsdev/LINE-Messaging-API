@@ -16,6 +16,8 @@ const lineGuard = (req, res, next) => {
     return res.sendStatus(401);
   }
 
+	console.log('LINE signature verified');
+
   next();
 };
 
