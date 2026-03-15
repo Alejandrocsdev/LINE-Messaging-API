@@ -6,8 +6,6 @@ require('./process').crashHandlers();
 const express = require('express');
 const port = Number(process.env.PORT) || 3000;
 
-const connectNgrok = require('./config/ngrok');
-
 const { silence, notFound, errorHandler } = require('./middlewares');
 
 const serverError = require('./errors/serverError');
@@ -15,10 +13,7 @@ const serverError = require('./errors/serverError');
 const routes = require('./routes');
 
 const start = async () => {
-  // 1. Establish public tunnel
-  await connectNgrok(port);
-
-  // 2. Create app only after infra is ready
+  // 1. Create app only after infra is ready
   const app = express();
 
   // Middlewares
@@ -33,7 +28,7 @@ const start = async () => {
   app.use(notFound);
   app.use(errorHandler);
 
-  // 4. Start server
+  // 2. Start server
   const server = app.listen(port, () => {
     console.info('[Server] listening on port', port);
   });
